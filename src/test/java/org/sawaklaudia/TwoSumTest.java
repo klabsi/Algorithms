@@ -51,7 +51,7 @@ class TwoSumTest {
         int[] expected = {0,1};
 
         // when
-        int[] actual = twoSum.twoSumSolution3(nums, target);
+        int[] actual = twoSum.twoSumWithHashMap(nums, target);
 
         // then
         Arrays.sort(expected);
