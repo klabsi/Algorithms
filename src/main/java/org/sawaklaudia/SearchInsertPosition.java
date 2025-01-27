@@ -4,17 +4,17 @@ public class SearchInsertPosition {
 
     public int searchInsert(int[] nums, int target) {
         int leftIndex = 0;
-        int rightindex = nums.length - 1;
+        int rightIndex = nums.length - 1;
 
-        while (leftIndex <= rightindex) {
-            int middleIndex = leftIndex + (rightindex - leftIndex) / 2;
+        while (leftIndex <= rightIndex) {
+            int middleIndex = leftIndex + (rightIndex - leftIndex) / 2;
 
             if (nums[middleIndex] == target) {
                 return middleIndex;
             } else if (nums[middleIndex] < target) {
                 leftIndex = middleIndex + 1;
             } else {
-                rightindex = middleIndex - 1;
+                rightIndex = middleIndex - 1;
             }
         }
 
