@@ -38,4 +38,17 @@ class ValidAnagramTest {
         // then
         Assertions.assertTrue(actual);
     }
+
+    @Test
+    void shouldReturnTrueWhenUsingASCIIInMethod(){
+        // given
+        String s = "anagram";
+        String t = "nagaram";
+
+        // when
+        boolean actual = validAnagram.isAnagram2(s, t);
+
+        // then
+        Assertions.assertTrue(actual);
+    }
 }
