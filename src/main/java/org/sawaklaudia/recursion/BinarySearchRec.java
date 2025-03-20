@@ -36,7 +36,7 @@ public class BinarySearchRec {
     }
 
     public static int binarySearchRecursively(int[] array, int searchedNumber, int leftIndex, int rightIndex) {
-        if (leftIndex >= rightIndex) {
+        if (leftIndex > rightIndex) {
             return -1;
         }
 
