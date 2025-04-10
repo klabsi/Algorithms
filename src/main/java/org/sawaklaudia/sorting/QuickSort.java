@@ -1,7 +1,5 @@
 package org.sawaklaudia.sorting;
 
-import java.util.Arrays;
-
 public class QuickSort implements SortingAlgorithmI {
     @Override
     public int[] sort(int[] toSort) {
