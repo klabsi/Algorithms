@@ -55,8 +55,12 @@ public class ContactsList {
     public static boolean dfsInMatrix(int[][] matrix, Set<Integer> visited, int student, int toReach) {
         visited.add(student);
 
+        if (matrix[student][toReach] == 1) {
+            return true;
+        }
+
         for (int column = 0; column < matrix[0].length; column++) {
-            if (matrix[student][column] == 1 && column == toReach) {
+            if (column == toReach && matrix[student][column] == 1) {
                 return true;
             } else if (matrix[student][column] == 1 && !visited.contains(column)) {
                 return dfsInMatrix(matrix, visited, column, toReach);
