@@ -13,6 +13,13 @@ public class ContactsList {
         System.out.println(canReachInMatrix(matrix, 3, 1));
     }
 
+    /**
+     *  1 --- 2 --- 7
+     *      /  \
+     *     4    5
+     *          |
+     *    3 --- 8       6 --- 9
+     */
     public static int[][] getContacts() {
         return new int[][]{
                 {1, 2}, {2, 4}, {2, 5}, {2, 7}, {3, 8}, {4, 8}, {5, 8}, {6, 9}
