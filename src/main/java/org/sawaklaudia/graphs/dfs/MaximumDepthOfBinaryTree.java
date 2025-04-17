@@ -1,9 +1,11 @@
 package org.sawaklaudia.graphs.dfs;
 
+import org.sawaklaudia.graphs.Tree;
+
 public class MaximumDepthOfBinaryTree {
 
     public static void main(String[] args) {
-        System.out.println(calcMaxDepth(Runner.tree()));
+        System.out.println(calcMaxDepth(Tree.tree()));
     }
 
     public static int calcMaxDepth(Node node) {

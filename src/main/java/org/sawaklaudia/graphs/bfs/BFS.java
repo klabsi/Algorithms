@@ -1,5 +1,6 @@
 package org.sawaklaudia.graphs.bfs;
 
+import org.sawaklaudia.graphs.Tree;
 import org.sawaklaudia.graphs.dfs.Node;
 import org.sawaklaudia.graphs.dfs.Runner;
 
@@ -9,7 +10,7 @@ public class BFS {
 
     public static void main(String[] args) {
         System.out.println("tree");
-        bfs(Runner.tree());
+        bfs(Tree.tree());
         System.out.println("\ngraph");
         bfs(Runner.graph());
     }

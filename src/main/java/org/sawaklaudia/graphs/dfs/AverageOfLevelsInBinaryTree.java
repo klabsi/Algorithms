@@ -1,27 +1,14 @@
 package org.sawaklaudia.graphs.dfs;
 
+import org.sawaklaudia.graphs.Tree;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class AverageOfLevelsInBinaryTree {
 
-    /**
-     * 1
-     * /   \
-     * 2      3
-     * /         \
-     * 4           5
-     **/
-    public static Node tree() {
-        var node4 = new Node(null, null, 5);
-        var node3 = new Node(null, null, 4);
-        var node2 = new Node(null, node4, 3);
-        var node1 = new Node(node3, null, 2);
-        return new Node(node1, node2, 1);
-    }
-
     public static void main(String[] args) {
-        List<Double> avrValues = calcAverageOfLevels(tree());
+        List<Double> avrValues = calcAverageOfLevels(Tree.smallTree());
         System.out.println(avrValues);
     }
 

@@ -1,7 +1,8 @@
-package org.sawaklaudia.graphs.dfs;
+package org.sawaklaudia.graphs;
 
-import org.sawaklaudia.graphs.Tree;
-public class Runner {
+import org.sawaklaudia.graphs.dfs.Node;
+
+public class Tree {
 
     /**
      *              0
@@ -34,33 +35,34 @@ public class Runner {
     }
 
     /**
-     *             0
-     *         /      \
-     *        /        \
-     *       /          \
-     *      /            \
-     *     1  _________>  2
-     *    /              /  \
-     *   3             5     6
-     *  / \                /  \
-     * 7  8 <-------------     -- 9
+     *        1
+     *      /   \
+     *    2      3
+     *   /         \
+     *  4           5
      **/
-    public static Node graph() {
-        var node9 = new Node(null, null, 9);
-        var node8 = new Node(null, null, 8);
-        var node7 = new Node(null, null, 7);
-        var node6 = new Node(null, null, 6);
-        var node5 = new Node(node8, node9, 5);
-        var node3 = new Node(node7, node8, 3);
-        var node2 = new Node(node5, node6, 2);
-        var node1 = new Node(node3, node2, 1);
-        return new Node(node1, node2, 0);
+    public static Node smallTree() {
+        var node4 = new Node(null, null, 5);
+        var node3 = new Node(null, null, 4);
+        var node2 = new Node(null, node4, 3);
+        var node1 = new Node(node3, null, 2);
+        return new Node(node1, node2, 1);
     }
 
-    public static void main(String[] args) {
-        DFS dfs = new DFS();
-        dfs.dfs(Tree.tree());
-        System.out.println();
-        dfs.dfs(graph());
+    /**
+     *         1
+     *       /   \
+     *      2      3
+     *     /
+     *    4
+     *   /
+     *  5
+     **/
+    public static Node rightSideViewTree() {
+        var node4 = new Node(null, null, 5);
+        var node3 = new Node(node4, null, 4);
+        var node2 = new Node(null, null, 3);
+        var node1 = new Node(node3, null, 2);
+        return new Node(node1, node2, 1);
     }
 }
