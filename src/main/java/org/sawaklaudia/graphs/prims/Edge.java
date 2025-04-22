@@ -18,6 +18,10 @@ public class Edge implements Comparable<Edge> {
         return endingVertex;
     }
 
+    public int getCost() {
+        return cost;
+    }
+
     @Override
     public String toString() {
         return "Edge{" +
