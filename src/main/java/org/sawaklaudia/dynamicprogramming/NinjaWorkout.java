@@ -1,5 +1,7 @@
 package org.sawaklaudia.dynamicprogramming;
 
+import java.util.Arrays;
+
 public class NinjaWorkout {
 
     public static int workoutRec(int[][] tab, int i, int forbidden) {
@@ -21,6 +23,48 @@ public class NinjaWorkout {
         return workoutRec(tab, 0, -1);
     }
 
+    public static int workoutMemo(int[][] tab, int i, int forbidden, int[][] memo) {
+        if (i < 0) {
+            return 0;
+        }
+
+        if (memo[i][forbidden] != -1) {
+            return memo[i][forbidden];
+        }
+
+        if (i == 0) {
+            int max = 0;
+            for (int j = 0; j < tab[0].length; j++) {
+                if (j != forbidden) {
+                    max = Math.max(max, tab[0][j]);
+                }
+            }
+            memo[i][forbidden] = max;
+            return max;
+        }
+
+        int max = 0;
+        for (int j = 0; j < tab[0].length; j++) {
+            if (j != forbidden) {
+                int activity = tab[i][j] + workoutMemo(tab, i - 1, j, memo);
+                max = Math.max(activity, max);
+            }
+        }
+
+        memo[i][forbidden] = max;
+        return max;
+    }
+
+    public static int workoutStartMemo(int[][] tab) {
+        int[][] memo = new int[tab.length][tab[0].length + 1];
+        for (int i = 0; i < memo.length; i++) {
+            Arrays.fill(memo[i], -1);
+        }
+
+        int max = workoutMemo(tab, tab.length - 1, tab[0].length, memo);
+        return max;
+    }
+
     public static void main(String[] args) {
         int[][] work = new int[][]{
                 {2, 1, 3},
@@ -30,5 +74,6 @@ public class NinjaWorkout {
         };
 
         System.out.println(workoutStartRec(work));
+        System.out.println(workoutStartMemo(work));
     }
 }
