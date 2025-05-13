@@ -65,6 +65,43 @@ public class NinjaWorkout {
         return max;
     }
 
+    public static int workoutStartTab(int[][] tab) {
+        int[][] dp = new int[tab.length][tab[0].length + 1];
+        // jeśli nie mogę wziąć '2' to biorę max z innych: dp[0][0] = 3; dp[0][1] = 3; dp[0][2] = 2; dp[0][3] = 3;
+
+        for (int forbidden = 0; forbidden <= tab[0].length; forbidden++) {
+            int max = 0;
+            for (int task = 0; task < tab[0].length; task++) {
+                if (task != forbidden) {
+                    max = Math.max(max, tab[0][task]);
+                }
+            }
+            dp[0][forbidden] = max;
+        }
+
+        for(int i = 1; i < tab.length; i++) {
+            for(int forbidden = 0; forbidden < dp[0].length; forbidden++) {
+                int max = 0;
+                for(int task = 0; task < tab[0].length; task++) {
+                    if(task != forbidden) {
+                        int activity = tab[i][task] + dp[i - 1][task];
+                        max = Math.max(max, activity);
+                    }
+                }
+                dp[i][forbidden] = max;
+            }
+        }
+
+        for (int row = 0; row < dp.length; row++) {
+            for(int col = 0; col < dp[0].length; col++) {
+                System.out.print(dp[row][col] + " ");
+            }
+            System.out.println();
+        }
+
+        return dp[dp.length - 1][dp[0].length - 1];
+    }
+
     public static void main(String[] args) {
         int[][] work = new int[][]{
                 {2, 1, 3},
@@ -75,5 +112,6 @@ public class NinjaWorkout {
 
         System.out.println(workoutStartRec(work));
         System.out.println(workoutStartMemo(work));
+        System.out.println(workoutStartTab(work));
     }
 }
