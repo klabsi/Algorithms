@@ -18,7 +18,7 @@ public class ClimbingStairs {
         return stepBy1 + stepBy2;
     }
 
-    public static int climbingStairsMemoHelper(int n, int[] memo) {
+    private static int climbingStairsMemoHelper(int n, int[] memo) {
         if(n == 0) {
             return 1;
         }
@@ -50,8 +50,21 @@ public class ClimbingStairs {
         return climbingStairsMemoHelper(n, memo);
     }
 
+    public static int climbingStairsTab(int n) {
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+        dp[1] = 1;
+
+        for(int i = 2; i < dp.length; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+
+        return dp[n];
+    }
+
     public static void main(String[] args) {
         System.out.println(climbStairsRecursive(4));
         System.out.println(climbingStairsMemo(4));
+        System.out.println(climbingStairsTab(4));
     }
 }
