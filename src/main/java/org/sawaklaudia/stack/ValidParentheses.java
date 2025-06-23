@@ -11,9 +11,9 @@ public class ValidParentheses {
             Character bracket = s.charAt(i);
             if (!stack.isEmpty()) {
                 Character bracketInStack = stack.peek();
-                if (bracketInStack.equals('(') && bracket.equals(')')
-                        || bracketInStack.equals('{') && bracket.equals('}')
-                        || bracketInStack.equals('[') && bracket.equals(']')) {
+                if ( (bracketInStack.equals('(') && bracket.equals(')'))
+                        || (bracketInStack.equals('{') && bracket.equals('}'))
+                        || (bracketInStack.equals('[') && bracket.equals(']')) ) {
                     stack.pop();
                 } else {
                     stack.push(bracket);
