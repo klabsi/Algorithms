@@ -1,33 +1,30 @@
 package org.sawaklaudia.christmas;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class SecretSanta {
 
     public static Map<String, String> draw(List<String> people) {
         Map<String, String> map = new HashMap<>();
-        List<String> toChoose = people.stream()
-                .collect(Collectors.toList());
+        List<String> toChoose = new ArrayList<>(people);
 
         for (int j = 0; j < people.size(); j++) {
-            int drawed = new Random().nextInt(toChoose.size());
-            while (toChoose.get(drawed).equals(people.get(j))) {
-                drawed = new Random().nextInt(toChoose.size());
+            int drawn = new Random().nextInt(toChoose.size());
+            while (toChoose.get(drawn).equals(people.get(j))) {
+                drawn = new Random().nextInt(toChoose.size());
             }
-            map.put(people.get(j), toChoose.get(drawed));
-            toChoose.remove(drawed);
+            map.put(people.get(j), toChoose.get(drawn));
+            toChoose.remove(drawn);
         }
         return map;
     }
 
     public static Map<String, String> drawWithShuffle(List<String> people) {
         Map<String, String> map = new HashMap<>();
-        List<String> toChoose = people.stream()
-                .collect(Collectors.toList());
+        List<String> toChoose = new ArrayList<>(people);
 
-        boolean haveToShullfe = true;
-        while(haveToShullfe) {
+        boolean haveToShuffle = true;
+        while(haveToShuffle) {
             Collections.shuffle(toChoose);
             boolean choseThemself = true;
             for (int i = 0; i < people.size() ; i++) {
@@ -38,7 +35,7 @@ public class SecretSanta {
                 choseThemself = false;
             }
             if(choseThemself == false) {
-                haveToShullfe = false;
+                haveToShuffle = false;
             }
         }
         for (int j = 0; j < people.size(); j++) {
