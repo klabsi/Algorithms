@@ -1,4 +1,4 @@
-package org.sawaklaudia.maps;
+package org.sawaklaudia.arraysandmaps;
 
 public class TwoSum {
 
