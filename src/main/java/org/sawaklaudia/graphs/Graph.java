@@ -90,4 +90,25 @@ public class Graph {
         graph[5][3] = 2;
         return graph;
     }
+
+    public static int[][] switchConnection() {
+        int[][] graph = new int[6][6];
+        graph[0][1] = 100;
+        graph[1][0] = 100;
+        graph[0][5] = 45;
+        graph[5][0] = 45;
+        graph[1][5] = 16;
+        graph[5][1] = 16;
+        graph[1][2] = 124;
+        graph[2][1] = 124;
+        graph[2][3] = 128;
+        graph[3][2] = 128;
+        graph[2][4] = 12;
+        graph[4][2] = 12;
+        graph[3][4] = 43;
+        graph[4][3] = 43;
+        graph[4][5] = 8;
+        graph[5][4] = 8;
+        return graph;
+    }
 }

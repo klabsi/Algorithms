@@ -7,7 +7,7 @@ import java.util.*;
 public class MinimumSpanningTree {
 
     public static void main(String[] args) {
-        List<Edge> edgeList = mst(Graph.notDirectedGraph());
+        List<Edge> edgeList = mst(Graph.switchConnection());
         for (Edge edge : edgeList) {
             System.out.println(edge);
         }
