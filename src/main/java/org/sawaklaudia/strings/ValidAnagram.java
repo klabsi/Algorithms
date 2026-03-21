@@ -1,4 +1,4 @@
-package org.sawaklaudia;
+package org.sawaklaudia.strings;
 
 import java.util.HashMap;
 import java.util.Map;

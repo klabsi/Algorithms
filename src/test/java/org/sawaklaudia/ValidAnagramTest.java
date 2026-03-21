@@ -3,6 +3,7 @@ package org.sawaklaudia;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.sawaklaudia.strings.ValidAnagram;
 
 class ValidAnagramTest {
 

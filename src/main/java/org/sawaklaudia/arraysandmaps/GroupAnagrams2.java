@@ -1,4 +1,4 @@
-package org.sawaklaudia;
+package org.sawaklaudia.arraysandmaps;
 
 import java.util.*;
 
